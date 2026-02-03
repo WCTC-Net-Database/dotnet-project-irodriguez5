@@ -123,7 +123,7 @@ class Program
             var hp = cols[3].Trim();
             var equipmentRaw = cols[4].Trim();
 
-            var equipment = equipmentRaw.Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
+            var equipment = equipmentRaw.Split('|', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);//copilot kept suggesting this change... vs just the var equipment = cols[4].Split('|'); line? 
 
             Console.WriteLine($"\nName: {name}");
             Console.WriteLine($"Profession: {profession}");
@@ -188,8 +188,8 @@ class Program
         // Format as CSV line
         string newLine = $"{name},{profession},{levelValue},{hpValue},{equipment}";
 
-        // Append to file (creates file if it doesn't exist); use platform-agnostic newline
-        File.AppendAllText(filePath, newLine + Environment.NewLine);
+        // Append to file (creates file if it doesn't exist)
+        File.AppendAllText(filePath, newLine + "\n");
 
         Console.WriteLine("Character added.");
     }
@@ -197,7 +197,7 @@ class Program
     /// <summary>
     /// Finds a character by name and increases their level by 1.
     /// </summary>
-    static void LevelUpCharacter()
+    static void LevelUpCharacter() //copilot was used for some help with this method
     {
         Console.WriteLine("\n=== Level Up Character ===\n");
 
